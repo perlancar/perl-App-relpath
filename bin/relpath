@@ -20,7 +20,8 @@ sub parse_cmdline {
             say "relpath version ", ($main::VERSION // '?');
             exit 0;
         },
-        'check!'     => \$Opts{check},
+        'check|c!'   => \$Opts{check},
+        'C'          => sub { $Opts{check} = 0 },
         'help|h'     => sub {
             print <<USAGE;
 Usage:
@@ -28,7 +29,7 @@ Usage:
   relpath --version
   relpath --help
 Options:
-  --nocheck
+  --nocheck, -C
 Consult manpage/documentation for more details.
 USAGE
             exit 0;
@@ -86,14 +87,21 @@ relative pathnames to absolute ones, while B<relpath> does the opposite.
 
 The actual routine used is L<File::Spec>'s C<abs2rel()> function.
 
+By default, will check first that the filenames exist, unless C<--nocheck>
+(C<-C>) is specified.
+
 
 =head1 OPTIONS
 
 =over
 
-=item * --[no]check
+=item * --[no]check, -c
 
 Whether to check that file exists. Default is on.
+
+=item * -C
+
+Alias for C<--nocheck>.
 
 =back
 
@@ -101,6 +109,8 @@ Whether to check that file exists. Default is on.
 =head1 EXIT CODES
 
 0 on success.
+
+1 on some error, e.g. some filenames are not found (and --check is on).
 
 99 on command-line options error.
 
