@@ -89,11 +89,11 @@ The actual routine used is L<File::Spec>'s C<abs2rel()> function.
 
 =head1 OPTIONS
 
+=over
+
 =item * --[no]check
 
 Whether to check that file exists. Default is on.
-
-=over
 
 =back
 
