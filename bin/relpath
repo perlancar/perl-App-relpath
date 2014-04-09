@@ -1,0 +1,122 @@
+#!/usr/bin/perl
+
+use 5.010001;
+use strict;
+use warnings;
+
+use File::Spec;
+use Getopt::Long;
+use SHARYANTO::File::Util qw(file_exists);
+
+# VERSION
+
+my %Opts = (
+    check => 1,
+);
+
+sub parse_cmdline {
+    my $res = GetOptions(
+        'version|v'  => sub {
+            say "relpath version ", ($main::VERSION // '?');
+            exit 0;
+        },
+        'check!'     => \$Opts{check},
+        'help|h'     => sub {
+            print <<USAGE;
+Usage:
+  relpath [OPTIONS] <filename> ...
+  relpath --version
+  relpath --help
+Options:
+  --nocheck
+Consult manpage/documentation for more details.
+USAGE
+            exit 0;
+        },
+    );
+    exit 99 if !$res;
+    unless (@ARGV) {
+        warn "relpath: need at least one filename\n";
+        exit 99;
+    }
+}
+
+sub run {
+    my $has_error = 0;
+
+    for (@ARGV) {
+        if ($Opts{check} && !file_exists($_)) {
+            $has_error++;
+            warn "relpath: No such file or directory: $_\n";
+            next;
+        }
+        say File::Spec->abs2rel($_);
+    }
+
+    exit $has_error ? 1:0;
+}
+
+# MAIN
+
+parse_cmdline();
+run();
+
+1;
+# ABSTRACT: Return the relative pathname
+# PODNAME: relpath
+
+=head1 SYNOPSIS
+
+Usage:
+
+ % relpath [OPTIONS] <filename> ...
+
+Examples:
+
+ % relpath /etc/passwd /home/steven/f1 subdir/f2
+ ../../etc/passwd
+ f1
+ subdir/f2
+
+
+=head1 DESCRIPTION
+
+This program complements the Unix command B<realpath>. B<realpath> converts
+relative pathnames to absolute ones, while B<relpath> does the opposite.
+
+The actual routine used is L<File::Spec>'s C<abs2rel()> function.
+
+
+=head1 OPTIONS
+
+=item * --[no]check
+
+Whether to check that file exists. Default is on.
+
+=over
+
+=back
+
+
+=head1 EXIT CODES
+
+0 on success.
+
+99 on command-line options error.
+
+
+=head1 TODO
+
+Option to set pwd.
+
+Actually check the existence of files.
+
+
+=head1 FAQ
+
+
+=head1 SEE ALSO
+
+L<realpath>
+
+=cut
