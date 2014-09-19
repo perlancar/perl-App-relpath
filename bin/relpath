@@ -74,7 +74,7 @@ Usage:
 
 Examples:
 
- % relpath /etc/passwd /home/steven/f1 subdir/f2
+ % relpath /etc/passwd /home/titin/f1 subdir/f2
  ../../etc/passwd
  f1
  subdir/f2
