@@ -65,7 +65,7 @@ run();
 
 1;
 # ABSTRACT: Return the relative pathname
-# PODNAME: relpath
+# PODNAME:
 
 =head1 SYNOPSIS
 
