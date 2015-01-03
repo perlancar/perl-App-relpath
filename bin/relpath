@@ -116,13 +116,6 @@ Alias for C<--nocheck>.
 99 on command-line options error.
 
 
-=head1 TODO
-
-Option to set pwd.
-
-Actually check the existence of files.
-
-
 =head1 FAQ
 
 
