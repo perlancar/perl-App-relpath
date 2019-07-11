@@ -1,11 +1,11 @@
-0.04    2015-01-03 (PERLANCAR)
+0.04    2015-01-03  Released-By: PERLANCAR
 
 	- No functional changes.
 
 	- Rebuild (Generate TODO.md).
 
 
-0.03    2014-12-05 (PERLANCAR)
+0.03    2014-12-05  Released-By: PERLANCAR
 
 	- No functional changes.
 
@@ -13,11 +13,11 @@
 	  File::MoreUtil.
 
 
-0.02    2014-04-09 (SHARYANTO)
+0.02    2014-04-09  Released-By: SHARYANTO
 
         - Add options -c and -C (alias for --check and --nocheck, respectively).
 
 
-0.01    2014-04-09 (SHARYANTO)
+0.01    2014-04-09  Released-By: SHARYANTO
 
         - First release.
