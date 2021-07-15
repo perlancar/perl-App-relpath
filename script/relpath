@@ -82,8 +82,6 @@ Examples:
  f1
  subdir/f2
 
-=for comment begin block demo_realpath_vs_quickabspath_vs_relpath, synchronize with realpath
-
 To demonstrate how C<realpath>, C<quickabspath>, and C<relpath> give you
 different results:
 
@@ -107,8 +105,6 @@ different results:
  .
  % relpath /home/ujang/sym1
  ../sym1
-
-=for comment end block demo_realpath_vs_quickabspath_vs_relpath
 
 
 =head1 DESCRIPTION
