@@ -1,3 +1,11 @@
+0.050   2021-07-15  Released-By: PERLANCAR; Urgency: low
+
+	- No functional changes.
+
+	- Remove =for POD heading because this will cause the demo to be
+	  put in Description section (by PodWeaver?).
+
+
 0.04    2015-01-03  Released-By: PERLANCAR
 
 	- No functional changes.
