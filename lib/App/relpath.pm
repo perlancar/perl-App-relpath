@@ -1,5 +1,8 @@
 package App::relpath;
 
+# AUTHORITY
+# DATE
+# DIST
 # VERSION
 
 1;
@@ -8,5 +11,10 @@ package App::relpath;
 =head1 SYNOPSIS
 
 See the command-line script L<relpath>.
+
+
+=head1 SEE ALSO
+
+L<App::realpath>, L<App::quickabspath>
 
 =cut

@@ -1,6 +1,8 @@
 #!perl
 
+# AUTHORITY
 # DATE
+# DIST
 # VERSION
 
 use 5.010001;
@@ -80,6 +82,34 @@ Examples:
  f1
  subdir/f2
 
+=for comment begin block demo_realpath_vs_quickabspath_vs_relpath, synchronize with realpath
+
+To demonstrate how C<realpath>, C<quickabspath>, and C<relpath> give you
+different results:
+
+ % pwd
+ /home/ujang
+
+ % mkdir dir1
+ % ln -s dir1 sym1
+
+ % cd sym1
+
+ % realpath .      ;# gives absolute path and resolve symlinks
+ /home/ujang/dir1
+ % abspath .       ;# an alias for realpath
+ /home/ujang/dir1
+
+ % quickabspath .  ;# gives absolute path but does not resolve symlinks
+ /home/ujang/sym1
+
+ % relpath /home/ujang/dir1
+ .
+ % relpath /home/ujang/sym1
+ ../sym1
+
+=for comment end block demo_realpath_vs_quickabspath_vs_relpath
+
 
 =head1 DESCRIPTION
 
@@ -121,6 +151,6 @@ Alias for C<--nocheck>.
 
 =head1 SEE ALSO
 
-L<realpath>
+L<realpath>, L<quickabspath>
 
 =cut
