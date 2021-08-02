@@ -2,3 +2,4 @@ App-relpath-*
 .build
 *~
 nytprof*
+.DS_Store
