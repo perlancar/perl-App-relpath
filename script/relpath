@@ -57,7 +57,7 @@ sub run {
         say File::Spec->abs2rel($_);
     }
 
-    exit $has_error ? 1:0;
+    exit($has_error ? 1 : 0);
 }
 
 # MAIN
